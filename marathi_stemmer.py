@@ -102,6 +102,9 @@ class MarathiStemmer:
         stemmed_text = re.sub(r"\s\s+", "", stemmed_text)
         stemmed_text = stemmed_text.strip()
         print("\n stemmed_text = ", stemmed_text)
+        with open("final_output.txt","a") as f:
+            f.write(stemmed_text+"\n")
+        f.close()
         "For testing (supplying one token at a time)"
         # cleaned_tok = tokens
         # if tokens not in total_list:
@@ -135,6 +138,12 @@ if __name__ == "__main__":
         print("\n input text = ", text)
         tokens = text.split()
         print(tokens)
+        with open("final_output.txt","a") as f:
+            f.write(text+"\n")
+            # f.write("\n")
+            # f.write(tokens)
+        f.close()
         obj.stem(text, tokens)
+        
     except Exception as e:
         print(e)
